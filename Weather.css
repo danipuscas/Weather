@@ -1,0 +1,42 @@
+body {
+    background-color: #70aea6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: cursive;
+}
+
+h1 {
+    position: relative;
+    font-size: 6em;
+    letter-spacing: 15px;
+    color: #54177c;
+    width: 100%;
+    text-align: center;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(141, 166, 179, 0.533));
+    line-height: 0.7em;
+    outline: none;
+    animation: animate 5s linear infinite;
+}
+
+
+a {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}
+.text {
+    animation: typing 2s steps(20) forwards;
+    animation-direction: reverse;
+}
+
+@keyframes typing {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
