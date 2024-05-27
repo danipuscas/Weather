@@ -43,7 +43,7 @@ async function CumEVremea(city) {
     {
         weathericon.src="images/mist.png";
 
-    document.querySelector(".weather").computedStyleMap.display = "block";
+   document.querySelector(".weather").style.display = "block";
 }
 }
 searchButton.addEventListener("click", () =>{ 
