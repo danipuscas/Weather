@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="about.css">
+    <title>Despre Aplicația de Vreme</title>
+</head>
+<body>
+    <div class="shortdetails">
+    <h1>Despre Aplicația de Vreme</h1>
+    <p>Bine ați venit la aplicația noastră de vreme! Această aplicație vă oferă informații actualizate despre vremea curentă și previziuni pentru diferite locații.</p>
+    
+    <h2>Cum funcționează?</h2>
+    <p>Aplicația utilizează o combinație de date în timp real și servicii de prognoză meteorologică pentru a vă oferi informații precise despre vreme. Puteți căuta locații specifice și veți primi informații despre temperatura actuală, umiditate, vânt și alte detalii relevante.</p>
+    
+    <h2>Cum să utilizați aplicația?</h2>
+    <p>Pentru a utiliza aplicația, pur și simplu introduceți numele locației în bara de căutare și apăsați butonul "Caută". Aplicația va afișa apoi informațiile despre vremea curentă și previziunile pentru locația respectivă.</p>
+</div>
+<div class="side-container1">
+ <div class="js1">
+    <h2>Cod JavaScript pentru obținerea informațiilor despre vreme</h2>
+        <img src="images/file1.jpg">
+        <p>Acest cod JavaScript este parte dintr-o aplicație de vreme care utilizează API-ul OpenWeatherMap pentru a obține informații meteorologice în timp real pentru un anumit oraș. În primul rând, el definește URL-ul de bază și cheia API necesară pentru a face cereri către serviciul OpenWeatherMap. Apoi, el selectează elementele HTML relevante pentru căutarea și afișarea informațiilor despre vreme. Funcția CumEVremea(city) este responsabilă pentru a obține datele despre vreme pentru un oraș dat. Ea face o cerere la API, așteaptă răspunsul și actualizează apoi elementele HTML cu datele obținute. Iconița vremii este schimbată în funcție de condițiile meteorologice. Dacă orașul introdus nu poate fi găsit, utilizatorul este notificat printr-o alertă.</p>
+        <p> 
+            <h4>Detalii Cod JavaScript:</h4>
+            <ul>
+                <li>const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";: Această linie definește URL-ul de bază al API-ului OpenWeatherMap pentru a obține informații despre vreme pentru un anumit oraș, cu unități de măsură în sistem metric.</li>
+
+                  <li> const apiKey = "99bab161de43d10d8174d9e24b2e76b8";: Aici este stocată cheia API necesară pentru a face cereri către serviciul OpenWeatherMap.</li>
+                    
+                    <li> const searchBox = document.querySelector(".search input");: Această linie selectează elementul input din cadrul clasei "search". Acest element va fi utilizat pentru a introduce numele orașului pentru care se dorește informații despre vreme.</li>
+                    
+                        <li>const searchButton = document.querySelector(".search button");: Aici se selectează butonul din cadrul clasei "search", care va fi utilizat pentru a declanșa căutarea informațiilor despre vreme atunci când este apăsat.</li>
+                    
+                            <li> const weathericon = document.querySelector(".weather-icon");: Această linie selectează elementul cu clasa "weather-icon", care va fi utilizat pentru a afișa iconița vremii corespunzătoare condițiilor meteorologice.</li>
+                    
+                                <li> async function CumEVremea(city) : Această linie definește o funcție asincronă numită "CumEVremea", care primește ca argument numele orașului pentru care se dorește informații despre vreme.</li>
+                    
+                                    <li> const response = await fetch(${apiUrl + city}&appid=${apiKey});: Aici se face o cerere către API-ul OpenWeatherMap utilizând funcția fetch(). URL-ul este compus din apiUrl, numele orașului (city) și apiKey. Această cerere este așteptată utilizând await.</li>
+                    
+                                        <li>if (response.status == 404) { return alert("Orașul nu a fost găsit!").style.display = "block"; }: Aici se verifică statusul răspunsului. Dacă este 404 (Not Found), se afișează o alertă că orașul nu a fost găsit.</li>
+                    
+                                            <li>  var data = await response.json();: Aici se obține răspunsul în format JSON și este stocat în variabila data.</li>
+                    
+                                                <li> document.querySelector(".city").innerHTML = data.name;: Aici se actualizează conținutul elementului HTML cu clasa "city" cu numele orașului obținut din răspunsul API-ului.</li>
+                    
+                                                    <li>Aceste linii similar actualizează conținutul altor elemente HTML cu datele meteorologice obținute din răspunsul API-ului: temperatura, umiditatea, viteza vântului și iconița vremii.</li>
+                    
+                                                        <li>document.querySelector(".weather").style.display = "block";: Aici se face ca div-ul cu clasa "weather" să fie afișat, pentru a arăta informațiile despre vreme.</li>
+            </ul>
+        </p>
+ </div>
+ <div class="side-container2">
+        <p>
+            <div class="js2">
+                 <h3>   Cod JavaScript pentru afișarea previziunilor meteorologice pentru următoarele 5 zile</h3>
+                 <img src="images/filegood1.png">
+                 <img src="images/filegood2.png">
+              
+                <p>Acest segment de cod JavaScript îndeplinește două funcții esențiale în cadrul aplicației de vreme:
+
+                    Prima funcție este de a obține și afișa previziunile meteorologice pentru următoarele 5 zile. Pentru aceasta, se folosește funcția fetchForecast(city) pentru a face o cerere către API-ul OpenWeatherMap și a obține datele meteorologice pentru orașul specificat. După ce datele sunt recepționate și transformate în format JSON prin apelul forecastResponse.json(), acestea sunt stocate în variabila forecastData. Secțiunea de cod extrage apoi datele relevante pentru fiecare zi din răspunsul API-ului, selectând previziunile pentru ora 12:00 a fiecărei zile și actualizând elementele HTML corespunzătoare cu informații despre temperatură și iconița vremii.</p>
+                    
+                    A doua funcție este de a configura aplicația pentru un oraș implicit și de a gestiona căutările utilizatorilor. Funcția DefaultScreen() este responsabilă pentru setarea orașului implicit pe "Sibiu" și afișarea informațiilor despre vreme pentru acest oraș la încărcarea paginii. De asemenea, prin adăugarea unui event listener butonului de căutare, când utilizatorul introduce un oraș și apasă butonul, funcția CumEVremea(city) este apelată cu orașul introdus, permițând astfel utilizatorilor să primească previziuni meteorologice pentru orice oraș doresc.
+                    
+                   <p> În concluzie, acest cod furnizează o interfață simplă și eficientă pentru utilizatori să acceseze și să vizualizeze previziunile meteorologice detaliate pentru următoarele 5 zile pentru orașele dorite, atât prin introducerea manuală a orașului, cât și prin afișarea automată a informațiilor pentru un oraș implicit.</p>
+           
+           <p>
+            <h4>Detalii Cod JavaScript:</h4>
+            <ul>
+                <li>const forecastData = await fetchForecast(city);: Această linie face o cerere către API-ul OpenWeatherMap pentru a obține datele de previziune meteorologică pentru orașul specificat de către utilizator. Funcția fetchForecast(city) este apelată pentru a efectua această cerere și returnează datele sub formă de obiect JSON.</li>
+                <li>let days = [];: Se declară un array gol pentru a stoca datele relevante pentru fiecare zi.</li>
+                <li>for (let i = 0; i < forecastData.list.length; i++) {: Acest for loop parcurge lista de previziuni meteorologice și extrage datele pentru fiecare zi la ora 12:00, adăugându-le în array-ul days.</li>   
+               <li>Se creează două obiecte Date pentru a reprezenta ziua curentă (today) și ziua de mâine (tomorrow). Ziua de mâine este calculată prin adăugarea unei zile la data curentă. Apoi, un loop parcurge array-ul days, care conține date meteorologice, și convertește datele în obiecte Date. Dacă ziua din array corespunde zilei de mâine, indexul de start (startIndex) este setat la poziția respectivă în array, permițând ulterior accesul la datele meteo pentru ziua următoare.</li>
+                 <li>document.getElementById("day" + (i + 1) + "Name").innerHTML = weekday[(d.getDay() + i) % 7];: Aici se actualizează elementele HTML cu numele zilei și temperatura pentru fiecare zi, folosind array-ul weekday și datele obținute din răspunsul API-ului.</li>  
+                <li>const weatherMain = days[i].weather[0].main;: Se extrage condiția meteorologică principală pentru fiecare zi din datele obținute.</li>
+                <li>if (weatherMain == "Clouds") {: Aici se actualizează iconița vremii pentru fiecare zi în funcție de condiția meteorologică principală.</li>
+                <li>async function fetchForecast(city) {: Această funcție face o cerere către API-ul OpenWeatherMap pentru a obține datele de previziune meteorologică pentru orașul specificat și returnează datele sub formă de obiect JSON.</li> 
+                <li>function DefaultScreen() {: Această funcție setează orașul implicit pe "Sibiu" și afișează informațiile despre vreme pentru acest oraș la încărcarea paginii.</li>  
+                <li>document.addEventListener("DOMContentLoaded", function () {: Aici se adaugă un event listener care apelează funcția DefaultScreen() la încărcarea completă a paginii.</li>  
+                <li>searchButton.addEventListener("click", () => {: Aici se adaugă un event listener care apelează funcția CumEVremea(city) atunci când utilizatorul apasă butonul de căutare.</li>
+
+            </ul>
+           </p>
+                </div>
+        </p>
+    </div>
+</div>
+
+    </body>
+</html>

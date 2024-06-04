@@ -93,3 +93,48 @@ body {
     font-size: 25px;
     margin-top: -6px;
 }
+.boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+
+}
+.box {
+    display: inline-block;
+    background: linear-gradient(135deg, #360892, #af1789);
+    float: left;
+    height: 200px;
+    width: 190px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    margin-left: 70px;
+    color: #ffffff;
+}
+.box img {
+    width: 65px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+.box h1 {
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
+}
+.box h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px; 
+    text-align: center;
+}
+.temp {
+    font-size: 25px;
+    font-weight: 400;
+    margin-top: 10px;
+     text-align: center;
+}
