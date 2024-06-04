@@ -34,6 +34,7 @@ async function CumEVremea(city) {
         weathericon.src = "images/mist.png";
     }
 
+<<<<<<< HEAD
     document.querySelector(".weather").style.display = "block";
 
     // Fetch pentru cele 5 zile următoare
@@ -86,6 +87,9 @@ async function CumEVremea(city) {
             imgElement.src = "images/mist.png";
         }
     }
+=======
+   document.querySelector(".weather").style.display = "block";
+>>>>>>> f39f87c7a81a325f3e99ffcd486e21af60cdfd57
 }
 
 async function fetchForecast(city) {
